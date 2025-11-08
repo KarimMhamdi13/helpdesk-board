@@ -22,11 +22,16 @@ export default function TicketCard({ ticket, onAddToQueue, queued }) {
         </div>
         <div className="mt-1 text-xs text-gray-500">Updated: {formatDate(ticket.updatedAt)}</div>
       </div>
+
       <div className="mt-3 md:mt-0 md:ml-4 flex flex-col items-start md:items-end">
         <button
           onClick={() => onAddToQueue(ticket.id)}
           disabled={queued}
-          className={`px-3 py-1 rounded ${queued ? 'bg-gray-300 cursor-not-allowed' : 'bg-blue-600 text-white'}`}
+          className={`px-3 py-1 rounded ${
+            queued
+              ? 'bg-gray-300 cursor-not-allowed'
+              : 'bg-blue-600 text-white'
+          } transition transform hover:scale-105 hover:opacity-90`}
         >
           {queued ? 'In My Queue' : 'Add to My Queue'}
         </button>
